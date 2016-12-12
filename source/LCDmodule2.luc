@@ -1,0 +1,226 @@
+module lcdmodule2 (
+    input clk,  // clock
+    input rst,  // reset
+    input new_screen[1], //trigger for new line of text
+    input next[6],
+   // input rom_address[6],    
+    output lcd_rs,
+    output lcd_rw,
+    output lcd_e,
+    output lcd_databus[8],
+ //   output current_step[8],    
+    output ini[3]
+  ) {
+  const ROM_LENGTH = 80;
+  
+  .clk(clk) {
+
+  .rst(rst) {
+    fsm state = {PWR_UP,LINE_END_CHECK,SETUP,PWR_UP_DELAY,OFF_PWR_UP_DELAY,WRITE_DATA,DATA_SETUP_DELAY,E_PULSE_HI,E_HI_TIME,E_PULSE_LO,PROC_COMP_DELAY,LOAD_NEXT_DATA};
+    fsm command = {IDLE,FUNCTION_SET,DISPLAY_ON,CLEAR,SET_ENTRY_MODE,WRITE_CHAR};
+            }
+    
+    dff timer[30];
+    dff databus[8];
+    dff rs[1];
+    dff e[1];
+    dff init[3];
+    dff new_screenn[1];
+    dff cleared[1];
+    dff rom_char_pos[7];
+  //  dff current_stepp[8];
+   // dff edgecounter;
+   // dff debug_stepp[1];
+    dff rom_add[6];
+    
+
+  }
+  
+  
+  text_rom rom;
+    
+  sig char[8];
+  
+  
+  always {
+    char = rom.letter; // tells display current char
+    rom.selector = rom_add.q; //tells rom which line to use
+    rom.address = rom_char_pos.q - 1; //tells rom which char to use
+    
+    lcd_rw = 0;
+    lcd_rs = rs.q;
+    lcd_e = e.q;
+    lcd_databus = databus.q;
+    
+   // current_stepp.d = 0;
+   // current_step = current_stepp.q;
+    
+    ini = init.q;
+   // cleared_debug = cleared.q;
+    //edgecount = edgecounter.q;
+    //debug_step = debug_stepp.q;
+    e.d = e.q;
+    new_screenn.d = new_screenn.q;
+    cleared.d = cleared.q;
+    rom_char_pos.d = rom_char_pos.q;
+    rs.d = rs.q;
+    databus.d = databus.q;
+    timer.d = timer.q;
+    state.d = state.q;
+    init.d = init.q;
+   // current_stepp.d = 0;
+    command.d = command.q;
+    
+       
+    rom_add.d = rom_add.q;
+    rom_add.d = next;
+    if (new_screen) new_screenn.d = 1;
+    
+    
+    case(state.q){
+      state.PWR_UP:
+        init.d = 0;
+        timer.d = 0;
+      //  current_stepp.d = 8h01;
+        state.d = state.PWR_UP_DELAY;
+        
+      state.PWR_UP_DELAY:
+        timer.d = timer.q+1;
+   //    current_stepp.d = 8h02;
+       if(timer.q == 2250000) //2250000
+          state.d = state.OFF_PWR_UP_DELAY;
+          
+      state.OFF_PWR_UP_DELAY:
+        timer.d = 0;
+        state.d = state.SETUP;
+       
+      state.SETUP:
+        timer.d = timer.q+1;
+     //   current_stepp.d = 8h03;
+          
+        if(init.q < 4 && timer.q > 205000) //205000
+          command.d = command.FUNCTION_SET;
+
+        else if(init.q == 4)
+          command.d = command.DISPLAY_ON;
+          
+        else if(init.q == 5)
+          command.d = command.SET_ENTRY_MODE;
+          
+        else if(new_screenn.q && init.q == 6)
+          command.d = command.CLEAR;
+          
+        else if(init.q == 6 && cleared.q == 1)
+          command.d = command.WRITE_CHAR;
+          
+        else
+          command.d = command.IDLE;
+          
+        case(command.q){
+            command.IDLE:
+              timer.d = timer.q+1;
+            
+            command.FUNCTION_SET:
+              timer.d = 0;
+              rs.d = 0;
+              databus.d = 8h38;
+              init.d = init.q+1;
+              state.d = state.WRITE_DATA;
+            
+            command.DISPLAY_ON: //function set
+              rs.d = 0;
+              timer.d = 0;
+              databus.d = 8h0C;
+              init.d = init.q+1;
+              state.d = state.WRITE_DATA;
+              
+            command.WRITE_CHAR:
+              rs.d = 1;
+              timer.d = 0;
+              databus.d = char;
+              state.d = state.LINE_END_CHECK;
+              
+            command.SET_ENTRY_MODE:
+              rs.d = 0;
+              timer.d = 0;
+              databus.d = 8h06;
+              init.d = init.q+1;
+            if(init.q == 6)
+              init.d = init.q;
+              
+              state.d = state.WRITE_DATA;
+
+            command.CLEAR:
+              rs.d = 0;
+              timer.d = 0;
+              rom_char_pos.d = 0;
+              new_screenn.d = 0;
+              cleared.d = 1;
+              databus.d = 8h01;
+              state.d = state.WRITE_DATA;
+          }
+       
+      state.LINE_END_CHECK: //checks if end of text
+        if(rom_char_pos.q <= ROM_LENGTH){
+       //   current_stepp.d = 8h04;
+          state.d = state.WRITE_DATA;
+        }
+        if(rom_char_pos.q > ROM_LENGTH && new_screenn.q == 1){
+       //   current_stepp.d = 8h05;
+          cleared.d = 0;
+          state.d = state.SETUP;
+        }   
+     //   current_stepp.d = 8h0E;           
+      
+      state.WRITE_DATA:
+       // current_stepp.d = 8h06;
+        timer.d = 0;
+        state.d = state.DATA_SETUP_DELAY;
+          
+      state.DATA_SETUP_DELAY:
+   //     current_stepp.d = 8h07;
+
+        timer.d = timer.q+1;
+        if(timer.q > 20){
+          timer.d = 0;        
+          state.d = state.E_PULSE_HI;
+        }
+          
+      state.E_PULSE_HI:
+    //  current_stepp.d = 8h08;
+        e.d = 1;
+        timer.d = 0;
+        state.d = state.E_HI_TIME;
+          
+      state.E_HI_TIME:
+     // current_stepp.d = 8h09;
+        e.d = e.q;
+        timer.d = timer.q+1;
+        if(timer.q == 13){
+          state.d = state.E_PULSE_LO;
+        }
+        
+      state.E_PULSE_LO:
+    //  current_stepp.d = 8h0A;
+        e.d = 0;
+        timer.d = 0;
+        state.d = state.PROC_COMP_DELAY;
+          
+      state.PROC_COMP_DELAY:
+        timer.d = timer.q+1;
+      //  current_stepp.d = 8h0B;
+
+        if(timer.q == 82000){
+          if(rom_char_pos.q <= ROM_LENGTH) rom_char_pos.d = rom_char_pos.q +1; //moves to next character in rom
+          state.d = state.LOAD_NEXT_DATA;
+        }
+          
+      state.LOAD_NEXT_DATA:
+     // current_stepp.d = 8h0C;
+        timer.d = 0;
+        state.d = state.SETUP;
+        //if inst_cnst = 40, return to idle  
+  
+    }
+  }
+}

@@ -1,0 +1,18 @@
+module latch_decoder2 (
+    input in[5],
+    output out[8][3]
+    
+  ) {
+  
+  always {
+    case(in){
+      0: out = {3b000,3b001,3b000,3b000,3b000,3b000,3b000,3b000}; 
+      1: out = {3b000,3b001,3b000,3b000,3b000,3b000,3b000,3b000};
+      2: out = {3b000,3b001,3b010,3b000,3b000,3b000,3b000,3b000}; //healer is the 3rd led
+      3: out = {3b000,3b001,3b011,3b000,3b000,3b000,3b000,3b000}; //mercenary is the 4th led
+      4: out = {3b000,3b001,3b100,3b000,3b000,3b000,3b000,3b000}; //silo is the 5th led
+      5: out = {3b000,3b001,3b101,3b000,3b000,3b000,3b000,3b000}; //insurance is the 6th led 
+      default: out = {3b000,3b001,3b000,3b000,3b000,3b000,3b000,3b000};
+      }
+  }
+}

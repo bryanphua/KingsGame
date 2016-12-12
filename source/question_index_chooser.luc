@@ -1,0 +1,20 @@
+module question_index_chooser (
+    input clk,  // clock
+    input rst,  // reset
+    input enable,
+    output out[6]
+  ) {
+
+  .clk(clk), .rst(rst) {
+    pn_gen randgen;
+    dff question_index[6];
+  } 
+ 
+  always { //generates random number from 0 to max 49 
+    out[5:0] = question_index.q[5:0];
+    randgen.seed = 1234;
+    randgen.next = enable;
+    question_index.d[5:0] =  randgen.num[29:25] + randgen.num[20:17] + randgen.num[11:10];
+    
+}
+}

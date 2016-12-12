@@ -1,0 +1,31 @@
+module latch_controller (
+    input clk,  // clock
+    input rst,  // reset
+    input in[5],  // no of lives to be displayed
+    output outtolatch[3]
+  ) {
+  
+  .clk(clk) {
+  
+    .rst(rst) {
+      counter ctr (#SIZE(3), #TOP(7), #DIV(12));
+    }
+  }  
+
+  latch_decoder decoder;
+  latch_decoder2 decoder1;
+  
+  always {
+      decoder.in = 5b00000;
+      decoder1.in = 5b00000;
+      if (in[4] == 1){
+        decoder1.in = in;
+        outtolatch = decoder1.out[ctr.value];
+    }
+    
+      else{
+      decoder.in = in;
+      outtolatch = decoder.out[ctr.value];
+      }
+}
+}

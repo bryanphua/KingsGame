@@ -1,0 +1,288 @@
+global Inst {
+  const NOP   = 5d0;  // 0 filled
+  const SET   = 5d3;  // dest, const        : R[dest] = const
+  const LT    = 5d4;  // dest, op1, op2     : R[dest] = R[op1] < R[op2]
+  const EQ    = 5d5;  // dest, op1, op2     : R[dest] = R[op1] == R[op2]
+  const BF    = 5d6;  // op1, rc, const8    : if(R[rc] == 0): PC = const8  // else: PC+=1 (usual)
+  const BT    = 5d7;  // op1, rc, const8    : if(R[rc] == 1): PC = const8 // else: PC+=1 (usual)
+  const ADD   = 5d8;  // dest, op1, op2     : R[dest] = R[op1] + R[op2]
+  const SUB   = 5d9;  // dest, op1, op2     : R[dest] = R[op1] - R[op2]
+  const SHL   = 5d10; // dest, op1, op2     : R[dest] = R[op1] << R[op2]
+  const SHR   = 5d11; // dest, op1, op2     : R[dest] = R[op1] >> R[op2]
+  const AND   = 5d12; // dest, op1, op2     : R[dest] = R[op1] & R[op2]
+  const OR    = 5d13; // dest, op1, op2     : R[dest] = R[op1] | R[op2]
+  const INV   = 5d14; // dest, op1          : R[dest] = ~R[op1]
+  const XOR   = 5d15; // dest, op1, op2     : R[dest] = R[op1] ^ R[op2]
+  
+  const WAITBUTTON =  5d16;    //dest,8b0     : R[dest] = 0(button0) or 1(button1)
+  const DELAY =       5d17;    //12d0         : delay for default seconds
+  const WAITBUTTONGAME=5d18;    //12d0         : delay for default seconds unless button press
+  const HALT =        5d19;
+  const CHOOSENXTQN = 5d20;    //12d0     : get next question index and push it to register 14 and 8
+  const FETCHEFFECT = 5d21;    //dest,(choice) 8b(qn number)
+  const MOVE        = 5d22;     
+  const GETEFFECT =   5d23;    //reg[dest], reg1(qnindex)(4bit) reg2(offset)(4bit)
+  const EXTRACTLOWER5=5d24;    //reg[dest] = reg[op][4:0]
+  const BR           =5d25;    //dest reg PC<- Reg[dest]
+  const LCDWRITE     =5d26;    //12d0  pull write enable up for 1 cycle
+  const ATTR_WRITE   =5d27;    //12d0  pull write enable up for 1 cycle
+  const CHECKREPEATED=5d28;    //dest, op1 4d0 check if qnindex at op1 has been encountered before
+  const SETVISITED   =5d29;    //12d0
+  const RESETQNREG   =5d30;    //12d0 reset qn reg
+  
+  const SETHARD      =5d31;    //12d0
+  const SETEASY      =5d1;     //12d0
+  const GETRANDOM2BIT=5d2;     //dest 8d0
+  }
+
+global Regs{// for cpu registers [16 to 0 ] 17 registers
+  const PC = 16;
+  const ZERO = 15;
+  const DISPLAY = 14; //connected to display_driver output
+  const LP = 13;      // STRICTLY no nested procedure call
+  const ATTR1 = 12;
+  const ATTR2 = 11;
+  const ATTR3 = 10;
+  const ATTR4 = 9;
+  //guidelines for code
+  const QNINDEX = 8;
+  const BUTTONINDEX =7;
+  const STATUS = 6;
+  //Regs 0 to 6 are free to use
+}
+ 
+module cpu (
+    input clk,         // clock
+    input rst,         // reset
+    output lcdWrite,      // display write request
+    output attributeWrite,
+    input button0,
+    input button1,
+    output led0[8],    //for debug
+    output led1[8],
+    output led2[8],
+    output display_driver[6],
+    output attr1[5],   // 5 bits only 2 complement 
+    output attr2[5],
+    output attr3[5],
+    output attr4[5],    //only take 5 bits of register data, EXTRACT 5 BITS AFTER INCREMENTING
+    output status[8]
+  ) {
+ 
+  .clk(clk), .rst(rst) {
+    dff reg[17][8]; // CPU Registers
+    dff delaycounter[25];
+    dff harddelaycounter[28];
+    dff qnindexReg[50];
+    dff difficulty[1];
+    dff lcddelaycounter[13];
+    question_index_chooser question_index_chooser;
+  }
+  .clk(clk){
+    falling_edge_detector edge_detector0;
+    falling_edge_detector edge_detector1;
+    button_conditioner button_cond0;
+    button_conditioner button_cond1;
+  }
+ 
+  instRom instRom;  // program ROM(contained within CPU)
+  attEffectRom effectRom;
+ 
+  sig op[5];        // opcode
+  sig arg1[4];      // first arg
+  sig arg2[4];      // second arg
+  sig dest[4];      // destination arg
+  sig constant[8];  // constant arg
+  sig harddelaycounterMSB;
+  sig difficultysig;
+ 
+  always {
+ 
+    led0= reg.q[0] ;      //LED[8] -> PC
+    led1= reg.q[8];
+    led2= reg.q[16];
+    // defaults
+    lcdWrite = 0;      // don't write
+    attributeWrite = 0;
+    //REGISTERS DEFINITION
+    //d16 program counter
+    //d15 always 0
+    //random gen uses reg15 LSB for one cycle
+    //d14 to display driver
+    effectRom.address = 0;
+    
+    instRom.address = reg.q[Regs.PC];   // reg 15 is program counter
+    reg.d[Regs.PC] = reg.q[Regs.PC] + 1;      // increment PC by default
+    reg.d[Regs.ZERO] = 8b0;
+    display_driver = reg.q[Regs.DISPLAY][5:0];
+    
+    op = instRom.inst[16:12];     // opcode is top 6 bits
+    dest = instRom.inst[11:8];    // dest is next 5 bits
+    arg1 = instRom.inst[7:4];     // arg1 is next 5 bits
+    arg2 = instRom.inst[3:0];     // arg2 is last 5 bits
+    constant = instRom.inst[7:0]; // constant is last 16 bits
+    
+    //b_delaycounter
+     harddelaycounterMSB = harddelaycounter.q[27];
+    
+    
+    //button_coordinator
+    button_cond0.in = button0; 
+    button_cond1.in = button1;
+    edge_detector0.in = button_cond0.out;
+    edge_detector1.in = button_cond1.out;
+    
+    //RANDOM NUMBER GENERATOR
+    question_index_chooser.enable = 0; //reg15 LSB for question_index_chooser enable
+    
+    //attribute registers and outputs
+    attr1 = reg.q[Regs.ATTR1][4:0];
+    attr2 = reg.q[Regs.ATTR2][4:0];
+    attr3 = reg.q[Regs.ATTR3][4:0];
+    attr4 = reg.q[Regs.ATTR4][4:0];  //0<=attribute value <=15 (2complement)
+    
+    
+    difficultysig = difficulty.q;
+    
+    status = reg.q[Regs.STATUS];
+    
+    
+    
+    // Perform the operation
+    case (op) {
+      Inst.SET:
+        reg.d[dest] = constant;                    // set the reg to constant
+      Inst.LT:
+        reg.d[dest] = reg.q[arg1] < reg.q[arg2];   // less-than comparison
+      Inst.EQ:
+        reg.d[dest] = reg.q[arg1] == reg.q[arg2];  // equals comparison
+      Inst.BF:
+        if (reg.q[dest] == 8d0)             // if R[dest] == 0
+          reg.d[Regs.PC] = constant;         // PC = constant
+                       
+      Inst.BT:
+        if (reg.q[dest] != 8d0)             // if R[dest] != 0
+          reg.d[Regs.PC] = constant;         // PC = constant
+                    
+      Inst.ADD:
+        reg.d[dest] = reg.q[arg1] + reg.q[arg2];   // addition
+      Inst.SUB:
+        reg.d[dest] = reg.q[arg1] - reg.q[arg2];   // subtraction
+      Inst.SHL:
+        reg.d[dest] = reg.q[arg1] << reg.q[arg2];  // shift left 
+      Inst.SHR:
+        reg.d[dest] = reg.q[arg1] >> reg.q[arg2];  // shift right
+      Inst.AND:
+        reg.d[dest] = reg.q[arg1] & reg.q[arg2];   // bit-wise AND
+      Inst.OR:
+        reg.d[dest] = reg.q[arg1] | reg.q[arg2];   // bit-wise OR
+      Inst.INV:
+        reg.d[dest] = ~reg.q[arg1];                // bit-wise invert
+      Inst.XOR:
+        reg.d[dest] = reg.q[arg1] ^ reg.q[arg2];   // bit-wise XOR
+      Inst.WAITBUTTONGAME:      
+        if (edge_detector0.out){   //if button0 is pressed, write 0 to Reg[dest]
+          reg.d[dest] = 8d0;
+          harddelaycounter.d = 28b0;
+        }
+        else if (edge_detector1.out){ // if button1 is pressed, write 1 to Reg[dest]
+          reg.d[dest] = 8d1;
+          harddelaycounter.d = 28b0;
+        }
+        else if (difficulty.q & harddelaycounterMSB){
+          //reg.d[dest] = question_index_chooser.out[3];
+          reg.d[dest] = 1;
+          harddelaycounter.d = 28b0;
+        }
+        else{  //keep looping and wait for one button to be pressed
+          reg.d[Regs.PC] = reg.q[Regs.PC];
+          harddelaycounter.d = harddelaycounter.q+1;
+        }
+      Inst.WAITBUTTON`:      
+        if (edge_detector0.out){   //if button0 is pressed, write 0 to Reg[dest]
+          reg.d[dest] = 8d0;
+          
+        }
+        else if (edge_detector1.out){ // if button1 is pressed, write 1 to Reg[dest]
+          reg.d[dest] = 8d1;
+         
+        }
+       
+        else{  //keep looping and wait for one button to be pressed
+          reg.d[Regs.PC] = reg.q[Regs.PC];
+          
+        }
+      Inst.DELAY:   
+        if (delaycounter.q[24] == 0){
+          delaycounter.d = delaycounter.q +1;      //delay for roughly 0.6s
+          reg.d[Regs.PC] = reg.q[Regs.PC];
+        }
+        else
+          delaycounter.d = 0;            
+        
+    
+          
+      Inst.HALT:
+        reg.d[Regs.PC] = reg.q[Regs.PC];      //PC stops changing stays at halt instruction
+        
+      Inst.CHOOSENXTQN:
+        question_index_chooser.enable = 1;
+        reg.d[Regs.DISPLAY] = question_index_chooser.out;
+        reg.d[Regs.QNINDEX] = question_index_chooser.out;
+  
+        
+      Inst.MOVE:                     //more of a macro haha
+        reg.d[dest] = reg.q[arg1];
+        
+      Inst.GETEFFECT:
+      reg.d[dest] = effectRom.eff;       
+      effectRom.address = reg.q[arg1]*8+reg.q[arg2] +1;
+        
+      Inst.EXTRACTLOWER5:
+      reg.d[dest][4:0] = reg.q[arg1][4:0];
+      reg.d[dest][7:5] = 3b000;
+        
+        
+      Inst.BR:
+        reg.d[Regs.PC] = reg.q[dest]; 
+        
+      Inst.LCDWRITE:
+        lcdWrite = 1;
+        //if (lcddelaycounter.q[12]){
+          //lcddelaycounter.d = 13d0;
+        //} 
+        //else{
+          //reg.d[Regs.PC] = reg.q[Regs.PC];
+          //lcddelaycounter.d = lcddelaycounter.q +1;
+        //}
+        
+        
+      Inst.ATTR_WRITE:
+        attributeWrite = 1;
+        
+      Inst.CHECKREPEATED:  
+        if (qnindexReg.q[reg.q[arg1][5:0]]==1){  //repeated
+          reg.d[dest] = 8d1;
+        }
+        else{
+          reg.d[dest] = 8d0;   
+        } 
+      Inst.SETVISITED:
+        qnindexReg.d[reg.q[Regs.QNINDEX]] =1b1;
+       
+      Inst.RESETQNREG:
+        qnindexReg.d = 50b0;
+        
+      Inst.SETEASY:
+        difficulty.d=0;
+      Inst.SETHARD:
+        difficulty.d=1;
+        
+      Inst.GETRANDOM2BIT:
+        question_index_chooser.enable = 1;
+        reg.d[dest][7:2]= 6b0;
+        reg.d[dest][1:0] = question_index_chooser.out[1:0];
+       
+    }
+  }
+}

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 786: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 789: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 792: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 795: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 798: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 801: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 804: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 807: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 810: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 813: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 816: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 819: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 822: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 825: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 828: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 831: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 834: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 837: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 840: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 843: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 846: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 849: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 852: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 855: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 858: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 861: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 864: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 867: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 870: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 873: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 876: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 879: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 882: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 885: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 888: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 891: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 894: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 897: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 900: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 903: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 906: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 909: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 912: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 915: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 918: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 921: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 924: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 927: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 930: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 933: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 936: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 939: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 942: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 945: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 948: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 951: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 954: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 957: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 960: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 963: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 966: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 969: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 972: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 975: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 978: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 981: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 984: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 987: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 990: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 993: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 996: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 999: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1002: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1005: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1008: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1011: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1014: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1017: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1020: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1023: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1026: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1029: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1032: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1035: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1038: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1041: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1044: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1047: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1050: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1053: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1056: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1059: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1062: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1065: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1068: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1071: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1074: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1077: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1080: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1083: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1086: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1089: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1092: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1095: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1098: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1101: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1104: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1107: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1110: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1113: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1116: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1119: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1122: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1125: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1128: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1131: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1134: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1137: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1140: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1143: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1146: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1149: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1152: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1155: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1158: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1161: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1164: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1167: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1170: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1173: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1176: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1179: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1182: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1185: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1188: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1191: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1194: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1197: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1200: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1203: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1206: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1209: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1212: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1215: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="295" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/attEffectRom_16.v" Line 1218: case condition never applies
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/cpu_2.v" Line 99: Assignment to <arg fmt="%s" index="1">difficultysig</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 71: Assignment to <arg fmt="%s" index="1">M_cpu_attributeWrite</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 72: Assignment to <arg fmt="%s" index="1">M_cpu_led0</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 73: Assignment to <arg fmt="%s" index="1">M_cpu_led1</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 74: Assignment to <arg fmt="%s" index="1">M_cpu_led2</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/hello_world_rom_32.v" Line 17: Net &lt;<arg fmt="%s" index="1">rom[40959]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 150: Assignment to <arg fmt="%s" index="1">M_lcd_ini</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_dip</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">cclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">spi_ss</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">spi_mosi</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">spi_sck</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">avr_tx</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">avr_rx_busy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">led0</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">led1</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">led2</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">attr1</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">attr2</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">attr3</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">65</arg>: Output port &lt;<arg fmt="%s" index="3">attributeWrite</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/1001775/Documents/mojo/Kings/work/planAhead/Kings/Kings.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">141</arg>: Output port &lt;<arg fmt="%s" index="3">ini</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">lcd</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">rom&lt;40959:640&gt;</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_eff</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">instRom/Mram_inst</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram__n9223</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="warning" file="Xst" num="1989" delta="new" >Unit &lt;<arg fmt="%s" index="1">mojo_top_0</arg>&gt;: instances &lt;<arg fmt="%s" index="2">controller1</arg>&gt;, &lt;<arg fmt="%s" index="3">controller2</arg>&gt; of unit &lt;<arg fmt="%s" index="4">latch_controller_3</arg>&gt; are equivalent, second instance is removed
+</msg>
+
+<msg type="warning" file="Xst" num="1989" delta="new" >Unit &lt;<arg fmt="%s" index="1">mojo_top_0</arg>&gt;: instances &lt;<arg fmt="%s" index="2">controller1</arg>&gt;, &lt;<arg fmt="%s" index="3">controller3</arg>&gt; of unit &lt;<arg fmt="%s" index="4">latch_controller_3</arg>&gt; are equivalent, second instance is removed
+</msg>
+
+<msg type="warning" file="Xst" num="1989" delta="new" >Unit &lt;<arg fmt="%s" index="1">mojo_top_0</arg>&gt;: instances &lt;<arg fmt="%s" index="2">controller1</arg>&gt;, &lt;<arg fmt="%s" index="3">controller4</arg>&gt; of unit &lt;<arg fmt="%s" index="4">latch_controller_3</arg>&gt; are equivalent, second instance is removed
+</msg>
+
+<msg type="warning" file="Xst" num="2973" delta="new" >All outputs of instance &lt;<arg fmt="%s" index="1">controller5/decoder1</arg>&gt; of block &lt;<arg fmt="%s" index="2">latch_decoder2_19</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2973" delta="new" >All outputs of instance &lt;<arg fmt="%s" index="1">controller1/decoder1</arg>&gt; of block &lt;<arg fmt="%s" index="2">latch_decoder2_19</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_11&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">controller1/ctr/M_ctr_q_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;controller5/ctr/M_ctr_q_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="741" delta="new" >HDL ADVISOR - A <arg fmt="%d" index="1">4</arg>-bit shift register was found for signal &lt;<arg fmt="%s" index="2">reset_cond/M_stage_q_3</arg>&gt; and currently occupies <arg fmt="%d" index="3">4</arg> logic cells (<arg fmt="%d" index="4">2</arg> slices). Removing the set/reset logic would take advantage of SRL<arg fmt="%d" index="5">32</arg> (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+</messages>
+

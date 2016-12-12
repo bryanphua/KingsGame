@@ -1,0 +1,530 @@
+module instRom (
+    input address[8],
+    output inst[17]    //17 bit instructions 5(OP)+destination(REGC)+  (4(REGA)+4(REGB)) OR (8(constant))
+  
+
+    
+    
+  ) {
+ //MAX 256 INSTRUCTIONS 0-255
+  always {
+    inst = c{Inst.NOP, 12b0}; 
+  
+ 
+    case (address) {
+      //const PC = 16;
+      //const ZERO = 15;
+      //const DISPLAY = 14; //connected to display_driver output
+      //const LP = 13;      // STRICTLY no nested procedure call
+      //const ATTR1 = 12;
+      //const ATTR2 = 11;
+      //const ATTR3 = 10;
+      //const ATTR4 = 9;
+      //guidelines for code
+      //const QNINDEX = 8;
+      //const BUTTONINDEX =7;
+      //const STATUS = 6           2bits
+      //Regs 0 to 6 are free to use 
+      
+      //#################### DISPLAY INDEX DOCUMENTATION###################################
+      // DISPLAY INDEX 6 bits [0-63]
+      //  0-49 QUESTION DISPLAY
+      //  
+      //  63 IDLE PAGE
+      //  62 DIFFICULTY SCREEN
+      //  59 INTRO SCREEN
+      //  61 YOU WON SCREEN
+      //  58 attr1 <=0 DEATH by
+      //  57 attr1 >=8
+      //  56 attr2 <=0
+      //  55 attr2 >=8
+      //  54 attr3 <=0
+      //  53 attr3 >=8
+      //  52 attr4 <=0
+      //  51 attr4 >=8
+      
+      //###################################################################################  
+    
+      
+      //START IDLE SCREEN
+      0:inst= c{Inst.SET,4d14,8d63};
+      1:inst= c{Inst.LCDWRITE,12d0};
+      2:inst= c{Inst.DELAY,12d0};
+      
+      //WAIT BUTTON PRESS
+      3:inst= c{Inst.WAITBUTTON,4d7,8d0}; //                                    !!BUTTON BREAKPOINT
+      
+      //DIFFICULTY SCREEN
+      4:inst= c{Inst.SET,4d14,8d62};
+      5:inst= c{Inst.LCDWRITE,12d0};
+      6:inst= c{Inst.DELAY,12d0};
+      7:inst= c{Inst.WAITBUTTON,4d7,8d0}; //                                     !!BUTTON BREAKPOINT
+      
+      //if 0 , difficulty = easy. 
+      8:inst= c{Inst.BF,4d7,8d11};
+      9:inst= c{Inst.SETHARD,12d0};
+      10:inst= c{Inst.BF,4d15,8d15};
+      11:inst= c{Inst.SETEASY,12d0};
+      
+      //INITIATE ATTRIBUTES 
+      15:inst= c{Inst.SET,4d12,8d4};
+      16:inst= c{Inst.SET,4d11,8d4};
+      17:inst= c{Inst.SET,4d10,8d4};
+      18:inst= c{Inst.SET,4d9,8d4};      //set attribute levels to 5
+      19:inst= c{Inst.ATTR_WRITE,12d0};  //enable attribute write
+      //20:inst =c{Inst.GETRANDOM2BIT,4d6,8d0};
+      20:inst= c{Inst.SET,4d6,8d3};
+      //INTRO SCREEN
+      21:inst= c{Inst.SET,4d14,8d59};
+      22:inst= c{Inst.LCDWRITE,12d0};
+      23:inst= c{Inst.DELAY,12d0};
+      24:inst= c{Inst.WAITBUTTON,4d7,8d0};                                                  //BUTTON BREAKPOINT
+      
+      25:inst= c{Inst.BF,4d15,8d50};     //JUMP to #50 start game
+  
+      
+        
+      
+      //GAME LOOP
+           
+      //CheckWin
+      50:inst =c{Inst.SET,4d13,8d52};  //SET LP to 52
+      51:inst =c{Inst.BF,4d15,8d200};  //count sum of encounter
+      52:inst =c{Inst.SET,4d1,8d50};   //reg1 = 50
+      53:inst =c{Inst.SUB,4d1,4d1,4d0};//reg1 = 50 - num encounters
+      //54:inst =c{Inst.HALT,12d0};
+      54:inst =c{Inst.BT,4d1,8d60};    //Jump to 60 if not win(0)
+      
+        
+        
+      //NO MORE QNS YOU WIN
+      55:inst= c{Inst.SET,4d14,8d61};
+      56:inst= c{Inst.LCDWRITE,12d0};
+      57:inst= c{Inst.DELAY,12d0};
+      58:inst= c{Inst.WAITBUTTON,4d7,8d0};
+      59:inst= c{Inst.BF,4d15,8d184};  //jump to 184 reset values
+        
+        
+      //Continue Game  
+      //60:inst= c{Inst.CHOOSENXTQN,12d0};     // choose random question push it to qnindex and display registers
+      //61:inst= c{Inst.CHECKREPEATED,4d0,4d8,4d0};  
+      //62:inst= c{Inst.BT,4d0,8d60};          // if repeated pick another qn
+      
+      //63:inst= c{Inst.SETVISITED,12d0};      // set the question as visited
+      
+      60:inst= c{Inst.SET,4d8,8d0};//set qn to 0  test TO REMOVE
+      61:inst= c{Inst.BF,4d15,8d64};//            test TO REMOVE
+        
+      64:inst= c{Inst.LCDWRITE,12d0};        //write out to LCD and delay
+      65:inst= c{Inst.DELAY,12d0};
+      
+      66:inst= c{Inst.WAITBUTTONGAME,4d7,8d0};   //wait button press, press send to reg7
+      
+    
+      //Button Triggered-update attribute values
+      67:inst= c{Inst.SET,4d13,8d69};       //SET LP to ....
+      68:inst= c{Inst.BF,4d15,8d225};       //Branch to update attribute procdure
+      
+      //########################################CHECK DEATH####################################
+      //death display number put into r0 whichever comes first attr1 -attr4
+        
+        
+      //############################check attr1 reg12
+      //check LOWER BOUND
+      69:inst= c{Inst.LT,4d1,4d15,4d12};        // reg1 = (0 <reg12)
+      70:inst= c{Inst.BT,4d1,8d80};             //continue other checks branch to 80
+      
+      //check if extra life available
+      71:inst=c{Inst.SET,4d3,8d0} ;             //reg3= 00
+      72:inst=c{Inst.EQ,4d4,4d6,4d3};           //reg4 = (reg6(life)== 00)
+      73:inst=c{Inst.BF,4d4,8d78};              //not equals go and die!\
+      74:inst=c{Inst.SET,4d3,8d1};              //extra life reg3 = 1
+      75:inst=c{Inst.ADD,4d12,4d12,4d3};        //reg12 +=1
+      76:inst=c{Inst.SET,4d6,8b10000000};       //remove extra life
+      77:inst=c{Inst.BF,4d15,8d80};             //continue other checks branch to 80
+        
+      //DEATH by attribute attr1 <=0  
+      78:inst= c{Inst.SET,4d0,8d58};            //r0->58
+      79:inst= c{Inst.BF,4d15,8d180};           //game over pc->180
+      
+      //check HIGHER BOUND
+      80:inst= c{Inst.SET,4d2,8d8};             //reg2 = 8
+      81:inst= c{Inst.LT,4d1,4d12,4d2};         //reg1 = (reg12<8)
+      82:inst= c{Inst.BT,4d1,8d85};             //if true: branch go to next check go to 85
+      //DEATH by attribute attr1>=8
+      83:inst= c{Inst.SET,4d0,8d57};            //r0->57
+      84:inst= c{Inst.BF,4d15,8d180};           //gameover pc->180
+      
+      //###########################check attr2 reg11
+      //check LOWER BOUND
+      85:inst= c{Inst.LT,4d1,4d15,4d11};        // reg1 = (0 <reg11)
+      86:inst= c{Inst.BT,4d1,8d96};             //continue other checks branch to 80
+      
+      //check if extra life available
+      87:inst=c{Inst.SET,4d3,8d1} ;             //reg3= 01
+      88:inst=c{Inst.EQ,4d4,4d6,4d3};           //reg4 = (reg6(life)== 01)
+      89:inst=c{Inst.BF,4d4,8d94};              //not equals go and die!\
+      90:inst=c{Inst.SET,4d3,8d1};              //extra life reg3 = 1
+      91:inst=c{Inst.ADD,4d11,4d11,4d3};        //reg11 +=1
+      92:inst=c{Inst.SET,4d6,8b10000000};       //remove extra life
+      93:inst=c{Inst.BF,4d15,8d96};             //continue other checks branch to 96
+        
+      //DEATH by attribute attr2 <=0  
+      94:inst= c{Inst.SET,4d0,8d56};            //r0->56
+      95:inst= c{Inst.BF,4d15,8d180};           //game over pc->180
+      
+      //check HIGHER BOUND
+      96:inst= c{Inst.SET,4d2,8d8};             //reg2 = 8
+      97:inst= c{Inst.LT,4d1,4d11,4d2};         //reg1 = (reg11<8)
+      98:inst= c{Inst.BT,4d1,8d101};            //if true: branch go to next check go to 110
+      //DEATH by attribute attr1>=8
+      99:inst= c{Inst.SET,4d0,8d55};            //r0->55
+      100:inst= c{Inst.BF,4d15,8d180};          //gameover pc->180  
+      
+        
+      //###########################check attr3 reg10
+      //check LOWER BOUND
+      101:inst= c{Inst.LT,4d1,4d15,4d10};       // reg1 = (0 <reg10)
+      102:inst= c{Inst.BT,4d1,8d112};           //continue other checks branch to 112
+      
+      //check if extra life available
+      103:inst=c{Inst.SET,4d3,8d2} ;            //reg3= 10
+      104:inst=c{Inst.EQ,4d4,4d6,4d3};          //reg4 = (reg6(life)== 10)
+      105:inst=c{Inst.BF,4d4,8d110};            //not equals go and die!\
+      106:inst=c{Inst.SET,4d3,8d1};             //extra life reg3 = 1
+      107:inst=c{Inst.ADD,4d10,4d10,4d3};       //reg10 +=1
+      108:inst=c{Inst.SET,4d6,8b10000000};      //remove extra life
+      109:inst=c{Inst.BF,4d15,8d112};           //continue other checks branch to 112
+        
+      //DEATH by attribute attr2 <=0  
+      110:inst= c{Inst.SET,4d0,8d54};           //r0->54
+      111:inst= c{Inst.BF, 4d15,8d180};         //game over pc->180
+      
+      //check HIGHER BOUND
+      112:inst= c{Inst.SET,4d2,8d8};            //reg2 = 8
+      113:inst= c{Inst.LT,4d1,4d10,4d2};        //reg1 = (reg10<8)
+      114:inst= c{Inst.BT,4d1,8d117};           //if true: branch go to next check go to 117
+      //DEATH by attribute attr1>=8
+      115:inst= c{Inst.SET,4d0,8d53};           //r0->53
+      116:inst= c{Inst.BF,4d15,8d180};          //gameover pc->180     
+        
+        
+        
+      //###########################check attr4 reg9
+      //check LOWER BOUND
+      117:inst= c{Inst.LT,4d1,4d15,4d9};        // reg1 = (0 <reg9)
+      118:inst= c{Inst.BT,4d1,8d128};           //continue other checks branch to 128
+      
+      //check if extra life available
+      119:inst=c{Inst.SET,4d3,8d3} ;            //reg3= 11
+      120:inst=c{Inst.EQ,4d4,4d6,4d3};          //reg4 = (reg6(life)== 10)
+      121:inst=c{Inst.BF,4d4,8d126};            //not equals go and die!\
+      122:inst=c{Inst.SET,4d3,8d1};             //extra life reg3 = 1
+      123:inst=c{Inst.ADD,4d9,4d9,4d3};         //reg9 +=1
+      124:inst=c{Inst.SET,4d6,8b10000000};      //remove extra life
+      125:inst=c{Inst.BF,4d15,8d128};           //continue other checks branch to 128
+        
+      //DEATH by attribute attr2 <=0  
+      126:inst= c{Inst.SET,4d0,8d52};           //r0->52
+      127:inst= c{Inst.BF, 4d15,8d180};         //game over pc->180
+      
+      //check HIGHER BOUND
+      128:inst= c{Inst.SET,4d2,8d8};            //reg2 = 8
+      129:inst= c{Inst.LT,4d1,4d9,4d2};        //reg1 = (reg9<8)
+      130:inst= c{Inst.BT,4d1,8d150};           //if true: branch go to next check go to 110
+      //DEATH by attribute attr1>=8
+      131:inst= c{Inst.SET,4d0,8d51};           //r0->51
+      132:inst= c{Inst.BF,4d15,8d180};          //gameover pc->180     
+        
+        
+        
+        
+        
+        
+        
+        
+      //check attr2 reg11
+      //100:inst= c{Inst.LT,4d1,4d15,4d11};    // reg1 = (0 <reg11)
+      //101:inst= c{Inst.BT,4d1,8d84};         // if true: go to next check
+      //death by attribute attr2 <=0
+      //82:inst= c{Inst.SET,4d0,8d56};        //set r0 -> 56
+      //83:inst= c{Inst.BF,4d15,8d180};       //game over pc->180
+      //check HIGHER BOUND
+      //84:inst= c{Inst.SET,4d2,8d8};         //reg2 = 8
+      //85:inst= c{Inst.LT,4d1,4d11,4d2};     //reg1 = (reg11<8)
+      //86:inst= c{Inst.BT,4d1,8d90};         //if true: branch go to next check
+      //death by attribute attr1>=8
+      //87:inst= c{Inst.SET,4d0,8d55};        //set r0-> 55
+      //88:inst= c{Inst.BF,4d15,8d180};       //game over pc->180
+        
+        
+       //check attr3 reg10
+      //90:inst= c{Inst.LT,4d1,4d15,4d10};    // reg1 = (0 <reg10)
+      //91:inst= c{Inst.BT,4d1,8d94};         // if true: go to next check
+      //death by attribute attr2 <=0
+      //92:inst= c{Inst.SET,4d0,8d54};        //set r0 -> 54
+      //93:inst= c{Inst.BF,4d15,8d180};       //game over pc->180
+      //check HIGHER BOUND
+      //94:inst= c{Inst.SET,4d2,8d8};         //reg2 = 8
+      //95:inst= c{Inst.LT,4d1,4d10,4d2};     //reg1 = (reg10<8)
+      //96:inst= c{Inst.BT,4d1,8d100};         //if true: branch go to next check
+      //death by attribute attr1>=8
+      //97:inst= c{Inst.SET,4d0,8d53};        //set r0-> 53
+      //98:inst= c{Inst.BF,4d15,8d180};       //game over pc->180  
+      
+        
+       //check attr4 reg9
+      //100:inst= c{Inst.LT,4d1,4d15,4d9};    // reg1 = (0 <reg9)
+      //101:inst= c{Inst.BT,4d1,8d104};         // if true: go to next check
+      //death by attribute attr2 <=0
+      //102:inst= c{Inst.SET,4d0,8d52};        //set r0 -> 52
+      //103:inst= c{Inst.BF,4d15,8d180};       //game over pc->180
+      //check HIGHER BOUND
+      //104:inst= c{Inst.SET,4d2,8d8};         //reg2 = 8
+      //105:inst= c{Inst.LT,4d1,4d9,4d2};     //reg1 = (reg9<8)
+      //106:inst= c{Inst.BT,4d1,8d110};         //if true: branch go to next check
+      //death by attribute attr1>=8
+      //107:inst= c{Inst.SET,4d0,8d51};        //set r0-> 51
+      //108:inst= c{Inst.BF,4d15,8d180};       //game over pc->180  
+        
+     
+      150:inst= c{Inst.ATTR_WRITE,12d0};  
+      151:inst= c{Inst.BF,4d15,8d50};   //branch back to start of game loop 
+      
+      //#########################################################################################
+        
+        
+        
+        
+        
+        
+        
+        
+        //############################## GAME OVER DEAD    ######################################
+        //args r0- death display number
+      180:inst= c{Inst.MOVE,4d14,4d0,4d0};
+      181:inst= c{Inst.LCDWRITE,12d0};
+      182:inst= c{Inst.DELAY,12d0};
+      183:inst= c{Inst.WAITBUTTON,4d7,8d0};
+      184:inst= c{Inst.SET,4d12,8d0};
+      185:inst= c{Inst.SET,4d11,8d0};
+      186:inst= c{Inst.SET,4d10,8d0};
+      187:inst= c{Inst.SET,4d9,8d0};      //set attribute levels to 0
+      188:inst= c{Inst.ATTR_WRITE,12d0};  //enable attribute write
+      189:inst= c{Inst.SET,4d8,8d0};      //reset qn index reg
+      190:inst= c{Inst.RESETQNREG,12d0};  //reset 50bit qn reg
+      191:inst= c{Inst.BF,4d15,8d0};      //branch to initial
+      //########################################################################################
+        
+       
+       //################### CALCULATE NUM OF UNIQUE QUESTIONS ENCOUNTERED ######################
+       //calculate number of rounds (assuming no repeated qns)
+       //return to LP after
+       //return value in r0
+       //branch inst= c{Inst.BF,4d15,8d200};
+       //########################################################################################
+       //sum = 0
+       //for i in range(50):
+       //  if qnindexregister[i]:
+       //     sum+=1
+        
+       200:inst= c{Inst.SET,4d4,8d0};                    //i = reg4 =0
+       201:inst= c{Inst.SET,4d0,8d0};                    //sum=reg5=0 [DONT USE REG 4 and 0]
+       //loop:
+       202:inst= c{Inst.SET,4d3,8d50};                   //reg3 = 50
+       203:inst= c{Inst.SUB,4d3,4d3,4d4};                //reg3 = 50-i
+          
+       204:inst= c{Inst.BF,4d3,8d210};                   //if reg3 ==0 , exit loop
+       
+       205:inst= c{Inst.CHECKREPEATED,4d1,4d4,4d0};      //reg0 = boolean(encountered before)
+       206:inst= c{Inst.ADD,4d0,4d1,4d0};                // sum+= result
+       
+       207:inst= c{Inst.SET,4d1,8d1};                    //reg1 = 1
+       208:inst= c{Inst.ADD,4d4,4d4,4d1};                //(i = reg4)++
+       
+       209: inst= c{Inst.BF,4d15,8d202};
+
+       210:inst= c{Inst.BR,4d13,8d0};                    //branch back to LP
+        
+      //#########################################################################################  
+
+      
+        
+        
+        
+        
+          
+      //##################### UPDATE ATTRIBUTES PROCEDURE #######################################
+      //UPDATE ATTRIBUTE PROCEDURE    [#225]
+        //ARGUMENTS: ATTRIBUTES(reg12-9) 
+        //           BUTTONINDEX(reg7)      
+        //           QNINDEX(reg8)           are accurate
+      // updates value according to these args
+      //uses r0-r5
+      //BR back to LP  
+      //#########################################################################################
+      
+      225:inst= c{Inst.SET,4d5,8d1};                     //reg5 = 00000001  reg7 = button
+      226:inst= c{Inst.AND,4d5,4d5,4d7};                 //reg5 = button AND mask(reg5)
+      227:inst= c{Inst.SET,4d4,8d2};                     //reg4 = 00000010
+      228:inst= c{Inst.SHL,4d3,4d5,4d4};                 //reg3 = reg4 <<2 (4 or 0) OFFSET
+      
+      229:inst = c{Inst.SET,4d5,8d1};                    //reg5 = 8d1
+      
+      ////////attr1
+      230:inst= c{Inst.GETEFFECT,4d0,4d8,4d3};           //effect->r0
+      231:inst= c{Inst.ADD,4d12,4d12,4d0};               //attr1 = attr1 +effect
+      232:inst= c{Inst.EXTRACTLOWER5,4d12,4d12,4d0};     //make sure attr only 5 bits
+      
+      233:inst= c{Inst.ADD,4d3,4d3,4d5};                 //offset +=1       
+      
+      /////////attr2  
+      234:inst= c{Inst.GETEFFECT,4d0,4d8,4d3};           //effect->r0
+      235:inst= c{Inst.ADD,4d11,4d11,4d0};               //attr2 = attr2 +effect
+      236:inst= c{Inst.EXTRACTLOWER5,4d11,4d11,4d0};     //make sure attr only 5 bits
+      
+      237:inst= c{Inst.ADD,4d3,4d3,4d5};                 //offset +=1
+      
+      //////////attr3
+      238:inst= c{Inst.GETEFFECT,4d0,4d8,4d3};           //effect->r0
+      239:inst= c{Inst.ADD,4d10,4d10,4d0};               //attr3 = attr3 +effect
+      240:inst= c{Inst.EXTRACTLOWER5,4d10,4d10,4d0};     //make sure attr only 5 bits
+      
+      241:inst= c{Inst.ADD,4d3,4d3,4d5};                 //offset +=1
+      
+      /////////attr4
+      242:inst= c{Inst.GETEFFECT,4d0,4d8,4d3};           //effect->r0
+      243:inst= c{Inst.ADD,4d9,4d9,4d0};                 //attr4 = attr4 +effect
+      244:inst= c{Inst.EXTRACTLOWER5,4d9,4d9,4d0};       //make sure attr only 5 bits
+      
+        
+      245:inst = c{Inst.BR,4d13,8d0};                     //BR(LP)
+      
+        
+     //#####################################################################################
+     
+        
+          }
+  }
+}  
+        //TESTS 
+
+
+  //TEST_BUTTON_PRESS
+     // 0: inst = c{Inst.SET,4d1,8d0};
+          //while(true):
+     // 1: inst = c{Inst.WAITBUTTON,4d0,8d0};
+      // if (r0 ==1):       
+     // 2: inst = c{Inst.BF,4d0,8d6};
+          //if(r1==0):
+     // 3: inst = c{Inst.BT,4d1,8d1};
+     // 4: inst = c{Inst.SET,4d1,8d1};
+     // 5: inst = c{Inst.BF,4d15,8d1};
+      //else:
+     // 6: inst = c{Inst.BF,4d1,8d1};
+     // 7: inst = c{Inst.SET,4d1,8d0};
+     // 8: inst = c{Inst.BF,4d15,8d1};
+     // 9: inst = c{Inst.HALT,12d0}
+     //TEST_BUTTON_PRESS
+      //0: inst = c{Inst.SET,4d1,8d0};
+          //while(true):
+      //1: inst = c{Inst.WAITBUTTON,4d0,8d0};
+      // if (r0 ==1):       
+      //2: inst = c{Inst.BEQ,4d0,8d6};
+          //if(r1==0):
+      //3: inst = c{Inst.BT,4d1,8d1};
+      //4: inst = c{Inst.SET,4d1,8d1};
+      //5: inst = c{Inst.BF,4d15,8d1};
+      //else:
+      //6: inst = c{Inst.BF,4d1,8d1};
+      //7: inst = c{Inst.SET,4d1,8d0};
+      //8: inst = c{Inst.BF,4d15,8d1};
+      
+    //TEST DELAY
+      //0: inst = c{Inst.DELAY,12d0};
+      //1: inst = c{Inst.BDELAY,12d0};
+      //2: inst = c{Inst.SET,4d1,8d1};
+      //3: inst = c{Inst.DELAY,12d0};
+      //4: inst = c{Inst.BDELAY,12d0};
+      //5: inst = c{Inst.SET,4d1,8d0};
+      //6: inst = c{Inst.BF,4d15,8d0};
+      
+   //TEST RAND NUM 
+      //0: inst = c{Inst.DELAY,12d0};
+      //1: inst = c{Inst.CHOOSENXTQN,12d0};
+      //2: inst = c{Inst.WAITBUTTON,4d0,8d0};
+      //3: inst = c{Inst.DELAY,12d0};
+      //9: inst = c{Inst.BF,4d15,8d1};
+      
+  //TEST GETEFFECT
+      //1: inst = c{Inst.SET,4d12,8d5}; //attr1 =5
+      //2: inst = c{Inst.SET,4d8,8d1};  //QNINDEX = 1
+      //3: inst = c{Inst.SET,4d3,8d0};  //offset
+      
+      //4: inst = c{Inst.GETEFFECT,4d0,4d8,4d3} ;//reg0 = effect
+      //5: inst = c{Inst.ADD,4d12,4d12,4d0};
+      //6: inst = c{Inst.HALT,12d0};
+      //4: inst = c{Inst.DELAY,12d0};
+      //4: inst = c{Inst.GETEFFECT,4d0,8d1} ;
+      //5: inst = c{Inst.WAITBUTTON,4d15,8d0};     
+      //6: inst = c{Inst.DELAY,12d0};
+      //7: inst = c{Inst.GETEFFECT,4d0,8d2}; 
+      //8: inst = c{Inst.WAITBUTTON,4d15,8d0};    
+      //9: inst = c{Inst.DELAY,12d0}; 
+      //10: inst = c{Inst.GETEFFECT,4d0,8d3}; 
+      //11: inst = c{Inst.WAITBUTTON,4d15,8d0};
+      //12: inst = c{Inst.DELAY,12d0}; 
+
+      //13: inst = c{Inst.BF,4d15,8d0};
+           
+        
+        
+        //TEST UPDATE ATTRIBUTE 
+        
+        //INITIALISE ATTRIBUTE VALUES
+      //0:inst = c{Inst.SET,4d12,8d5};
+      //1:inst = c{Inst.SET,4d11,8d5};
+      //2:inst = c{Inst.SET,4d10,8d5};
+      //3:inst = c{Inst.SET,4d9,8d5};
+      
+        
+      //4:inst= c{Inst.SET,4d8,8d2};       //SET random number index to 2 reg8 =2
+      //5:inst= c{Inst.SET,4d7,8d1};       //BUTTON SET TO 1              reg7 =1
+      
+      //6:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      //7:inst= c{Inst.DELAY,12d0};
+      
+        
+      //8:inst= c{Inst.SET,4d13,8d10};       //SET LP
+      //9:inst= c{Inst.BF,4d15,8d225};      //BRANCH TO UPDATE ATTRIBUTES PROCEDURE
+      
+      //10:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      //11:inst= c{Inst.DELAY,12d0};
+      //12:inst = c{Inst.SET,4d12,8d1};
+      //13:inst = c{Inst.HALT,12d0};
+
+
+
+      //CHECK REPEATED TEST CODE
+      //17:inst= c{Inst.SET,4d0,8d1};
+      //19:inst= c{Inst.CHECKREPEATED,4d1,4d0,4d0};          //not repeated
+      //20:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      
+      //21:inst= c{Inst.SET,4d0,8d1};
+      //22:inst= c{Inst.CHECKREPEATED,4d1,4d0,4d0};          //repeated
+      //23:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      
+      //24:inst= c{Inst.SET,4d0,8d1};
+      //25:inst= c{Inst.CHECKREPEATED,4d1,4d0,4d0};          //repeated
+      //26:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      
+      //27:inst= c{Inst.SET,4d0,8d49};
+      //28:inst= c{Inst.CHECKREPEATED,4d1,4d0,4d0};          //not repeated
+      //29:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      
+      //30:inst= c{Inst.SET,4d0,8d49};
+      //31:inst= c{Inst.CHECKREPEATED,4d1,4d0,4d0};          //repeated
+      //32:inst= c{Inst.WAITBUTTON,4d15,8d0};
+      
+      //33:inst = c{Inst.HALT,12d0};
+      

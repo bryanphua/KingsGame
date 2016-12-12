@@ -1,0 +1,48 @@
+NET "clr" LOC = P74;
+NET "clr" IOSTANDARD = LVTTL;
+NET "g" LOC = P66;
+NET "g" IOSTANDARD = LVTTL;
+NET "d" LOC = P57;
+NET "d" IOSTANDARD = LVTTL;
+
+NET "latchout1[0]" LOC = P81;
+NET "latchout1[0]" IOSTANDARD = LVTTL;
+NET "latchout1[1]" LOC = P83;
+NET "latchout1[1]" IOSTANDARD = LVTTL;
+NET "latchout1[2]" LOC = P85;
+NET "latchout1[2]" IOSTANDARD = LVTTL;
+
+NET "latchout2[0]" LOC = P134;
+NET "latchout2[0]" IOSTANDARD = LVTTL;
+NET "latchout2[1]" LOC = P133;
+NET "latchout2[1]" IOSTANDARD = LVTTL;
+NET "latchout2[2]" LOC = P132;
+NET "latchout2[2]" IOSTANDARD = LVTTL;
+
+NET "latchout3<0>" LOC = P134 | IOSTANDARD = LVTTL;
+NET "latchout3[0]" IOSTANDARD = LVTTL;
+NET "latchout3<1>" LOC = P133 | IOSTANDARD = LVTTL;
+NET "latchout3[1]" IOSTANDARD = LVTTL;
+NET "latchout3<2>" LOC = P132 | IOSTANDARD = LVTTL;
+NET "latchout3[2]" IOSTANDARD = LVTTL;
+
+NET "latchout4<0>" LOC = P134 | IOSTANDARD = LVTTL;
+NET "latchout4[0]" IOSTANDARD = LVTTL;
+NET "latchout4<1>" LOC = P133 | IOSTANDARD = LVTTL;
+NET "latchout4[1]" IOSTANDARD = LVTTL;
+NET "latchout4<2>" LOC = P132 | IOSTANDARD = LVTTL;
+NET "latchout4[2]" IOSTANDARD = LVTTL;
+
+NET "latchout5<0>" LOC = P134 | IOSTANDARD = LVTTL;
+NET "latchout5[0]" IOSTANDARD = LVTTL;
+NET "latchout5<1>" LOC = P133 | IOSTANDARD = LVTTL;
+NET "latchout5[1]" IOSTANDARD = LVTTL;
+NET "latchout5<2>" LOC = P132 | IOSTANDARD = LVTTL;
+NET "latchout5[2]" IOSTANDARD = LVTTL;
+
+NET "button0" LOC = P121;
+NET "button0" IOSTANDARD = LVTTL;
+NET "button0" PULLDOWN;
+NET "button1" LOC = P128 | IOSTANDARD = LVTTL | PULLDOWN;
+
+

@@ -1,0 +1,20 @@
+module statusdecoder (
+    output out[5],
+    input in[8]
+  ) {
+
+  always {
+    out = 8d0;
+    case(in){
+      8b00000000:
+        out=5b10010;
+      8b00000001:
+        out=5b10011;
+      8b00000010:
+        out=5b10100;
+      8b00000011:
+        out=5b10101;
+      
+    }
+  }
+}

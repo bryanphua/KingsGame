@@ -1,0 +1,42 @@
+module text_rom (
+    input selector[6],
+    input address[7],  // ROM address
+    output letter[8]   // ROM output
+  ) {
+  
+  //#################### DISPLAY INDEX DOCUMENTATION###################################
+      // DISPLAY INDEX 6 bits [0-63]
+      //  0-49 QUESTION DISPLAY
+      //  
+      //  63 IDLE PAGE
+      //  62 DIFFICULTY SCREEN
+      //  59 INTRO SCREEN
+      //  61 YOU WON SCREEN
+      //  58 attr1 <=0 DEATH by
+      //  57 attr1 >=8
+      //  56 attr2 <=0
+      //  55 attr2 >=8
+      //  54 attr3 <=0
+      //  53 attr3 >=8
+      //  52 attr4 <=0
+      //  51 attr4 >=8
+      
+      //###################################################################################  
+    
+ 
+
+  const TEXT0 = "The neighbouring kingdom has been weakened. Invade the neighbouring kingdom?    ";
+
+
+  
+  sig rom[64][80][8];
+ 
+  always {
+    
+    rom[0] = $reverse(TEXT0);
+
+    
+    letter = rom[selector][address]; // address indexes 8 bit blocks of TEXT  
+
+  }
+}
