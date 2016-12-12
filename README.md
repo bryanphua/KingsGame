@@ -33,6 +33,57 @@ Game mechanics and logic built around an ALU on an FPGA.
 | 110101 | 0x35 | CMPLT     |Less than|
 | 110111 | 0x37 | CMPLE     |Less than equals to|
 
-##Game Description
+##Player-count
+One
 
-##Rules
+##Objective
+For players to reign over their kingdom as long as possible, without being overthrown or killed. High scores will be generated according to how many rounds the player has lasted.
+
+##Attributes
+All attributes range from a scale of 0-10.
+
+##Religion
+A measure of the spiritual faith of the player’s population. Consequently, reflects the power of the church.
+
+##Population
+A measure of the strength of the population. A consequence of their contentment, hunger and size.
+
+##Military
+A measure of the strength of the military. Dependent on their funding, equipment and size.
+
+##Wealth
+How rich you (or your royal treasurers) are. ‘Nuff said.
+
+##Instructions
+- Players begin the game with a starting attribute level of 4 and have to ensure that these attributes do not drop to 0 or reach 8.
+- Every round, players will be prompted with a question requiring them to input a yes or no answer.
+
+- Their answer will positively or negatively affect their four attributes to varying degrees.
+- There is no correct answer - nearly all answers are a compromise of some sort.
+- Each question answered is considered one successful round.
+- Players play until they are killed, or overthrown.
+- Players may be saved by bonuses gained at the beginning of the game, outlined below.
+
+##Death
+Players will die and lose reign over their kingdom if any of the four attributes drop to 0, or hit the max cap of 10.
+
+For example:
+When the Religion attribute has hit max cap:
+     The church has grown too powerful, and has decided to overthrow the monarchy.
+
+When the Population attribute has hit 0:
+     Your people are dead. You have no kingdom to rule over.
+
+##Bonuses
+Along the way, players may be granted bonuses from special instances in-game. These can be gained from answering a question in a specific way, or randomly from a character.
+- Food Silo
+    - Thanks to your great foresight, the food silo you’ve built helps prevent your people from going hungry
+    - Prevents death from Population attribute hitting 0 once
+- Insurance Policy
+    - Prevents player from getting overthrown due to 0 Wealth once
+- Spiritual Healer
+    - Restores faith in your population by performing a miracle
+    - Prevents player from getting overthrown due to 0 Religion once
+- Mercenary Forces
+    - Comes to your kingdom’s aid in times of war
+    - Prevents player from being killed due to 0 Military once
