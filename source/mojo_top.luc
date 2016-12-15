@@ -1,7 +1,6 @@
 module mojo_top ( //LAST EDIT 7/12/2016 9:27PM
     input clk,              // 50MHz clock
     input rst_n,            // reset button (active low)
-    output led [8],         // 8 user controllable LEDs
     input cclk,             // configuration clock, AVR ready when high
     output spi_miso,        // AVR SPI MISO
     input spi_ss,           // AVR SPI Slave Select
@@ -12,29 +11,39 @@ module mojo_top ( //LAST EDIT 7/12/2016 9:27PM
     output avr_rx,          // AVR RX (FPGA TX)
     input avr_rx_busy,       // AVR RX buffer full
     output io_led [3][8],   // LEDs on IO Shield
-    output io_seg [8],      // 7-segment LEDs on IO Shield
-    output io_sel [4],      // Digit select on IO Shield
     input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8],     // DIP switches on IO Shield
     
     input button0,
     input button1,
     
-    
-    output clr,
-    output g,
-    output d,
-    output latchout1[3],
-    output latchout2[3],
-    output latchout3[3],
-    output latchout4[3],
-    output latchout5[3],
-    
-    
     output lcd_rs,
     output lcd_rw,
     output lcd_e,
-    output lcd_databus[8]
+    output lcd_databus[8],
+    
+    
+    output clr1,
+    output g1,
+    output d_1,
+    output latchout1[3],
+    output clr2,
+    output g2,
+    output d_2,
+    output latchout2[3],
+    output clr3,
+    output g3,
+    output d_3,
+    output latchout3[3],
+    output clr4,
+    output g4,
+    output d_4,
+    output latchout4[3],
+    output clr5,
+    output g5,
+    output d_5,
+    output latchout5[3]
+
   ) {
   
   sig rst;                  // reset signal
@@ -43,82 +52,118 @@ module mojo_top ( //LAST EDIT 7/12/2016 9:27PM
 
     reset_conditioner reset_cond;
     .rst(rst) {
+    
+      dff slow_clock[25];
+
       cpu cpu;        // our snazzy cpu
-      latch_controller controller1;
-      latch_controller controller2;
-      latch_controller controller3;
-      latch_controller controller4;
-      latch_controller controller5;
+      attributeLEDDriver leddriver1;
+      attributeLEDDriver leddriver2;
+      attributeLEDDriver leddriver3;
+      attributeLEDDriver leddriver4;
+      statusLEDdriver statusdriver;
       
     }
   }
-  statusdecoder statusdecoder;
-  var enable;
   
   lcdmodule2 lcd;
   
+  
+  
   always {
-    statusdecoder.in = cpu.status;
+  
+    slow_clock.d = slow_clock.q+1;
+    
     
     io_led = 3x{{8d0}};    // turn LEDs off
-    io_seg = 8hff;          // turn segments off
-    io_sel = 4hf;           // select no digits
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
     
-    led = 8h00;             // turn LEDs off
     spi_miso = bz;          // not using SPI
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
+    //cpu.button0 = io_button[0]; //red button
+    //cpu.button1 = io_button[1]; //green button
     cpu.button0 = button0; //red button
     cpu.button1 = button1; //green button
-        
+    
     //io_led[1][5:0]=cpu.display_driver;
     //io_led[0]= cpu.led0;
-    io_led[1]= statusdecoder.out;
-    
+    //io_led[1]= cpu.led1;
+    //io_led[2]= cpu.led2;
     
     //attribute testing
-    io_led[0][4:0] = cpu.attr4;
+    io_led[0][4:0] = cpu.attr1;
     //io_led[1][4:0]=  cpu.attr2;
     //io_led[2][4:0]=  cpu.attr3;
     
-    //statusdecoder.in = cpu.status;    
+    //attribute 1
+    leddriver1.attributein = cpu.attr1;
+    leddriver1.enable = cpu.attributeWrite;
+    latchout1[0] = leddriver1.latchs0;
+    latchout1[1] = leddriver1.latchs1;
+    latchout1[2] = leddriver1.latchs2;
+    g1 = leddriver1.latchG;
+    clr1 =leddriver1.latchclear;
+    d_1 = leddriver1.latchD;
     
-    //////val part///////
-    clr = 1;
-    g = 0;
-    d = 1;
+    //attribute 2
+    leddriver2.attributein = cpu.attr2;
+    leddriver2.enable = cpu.attributeWrite;
+    latchout2[0] = leddriver2.latchs0;
+    latchout2[1] = leddriver2.latchs1;
+    latchout2[2] = leddriver2.latchs2;
+    g2 = leddriver2.latchG;
+    clr2 = leddriver2.latchclear;
+    d_2 = leddriver2.latchD;
     
-
+    //attribute 3
+    leddriver3.attributein = cpu.attr3;
+    leddriver3.enable = cpu.attributeWrite;
+    latchout3[0] = leddriver3.latchs0;
+    latchout3[1] = leddriver3.latchs1;
+    latchout3[2] = leddriver3.latchs2;
+    g3 = leddriver3.latchG;
+    clr3 = leddriver3.latchclear;
+    d_3 = leddriver3.latchD;
     
-    latchout1 = controller1.outtolatch;
-    latchout2 = controller2.outtolatch;
-    latchout3 = controller3.outtolatch;
-    latchout4 = controller4.outtolatch;
-    latchout5 = controller5.outtolatch;
-    enable = 0;
+    //attribute 4
+    leddriver4.attributein = cpu.attr4;
+    leddriver4.enable = cpu.attributeWrite;
+    latchout4[0] = leddriver4.latchs0;
+    latchout4[1] = leddriver4.latchs1;
+    latchout4[2] = leddriver4.latchs2;
+    g4 = leddriver4.latchG;
+    clr4 = leddriver4.latchclear;
+    d_4 = leddriver4.latchD;
     
- 
+    //status
+    statusdriver.attributein = cpu.status;
+    statusdriver.enable = cpu.attributeWrite;
+    latchout5[0] = statusdriver.latchs0;
+    latchout5[1] = statusdriver.latchs1;
+    latchout5[2] = statusdriver.latchs2;
+    g5 = statusdriver.latchG;
+    clr5 = statusdriver.latchclear;
+    d_5 = statusdriver.latchD;
     
-      
-    controller1.in = cpu.attr1;
-    controller2.in = cpu.attr2;
-    controller3.in = cpu.attr3;
-    controller4.in = cpu.attr4;
-    controller5.in = statusdecoder.out;
-      
-  
+    //lcd module
     
-    lcd.clk = clk;//slow_clock.q[25];
+    lcd.clk = slow_clock.q[10];
     lcd.rst = rst;
     lcd_rs = lcd.lcd_rs;
     lcd_rw = lcd.lcd_rw;
     lcd_e = lcd.lcd_e;
     lcd_databus = lcd.lcd_databus;
-    
     lcd.new_screen = cpu.lcdWrite;
-    lcd.next = cpu.display_driver;
+    lcd.selector = cpu.display_driver;
+    
+    io_led[0] = lcd.timerr;
+    io_led[1] = lcd.lcd_databus;
+    io_led[2] = lcd.current_step;
+      
+  
+    
+   
       
   }
     

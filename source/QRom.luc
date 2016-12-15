@@ -1,0 +1,440 @@
+module text_rom (
+    input selector[6],
+    input clk,
+    input address[7],  // ROM address
+    output letter[8]   // ROM output
+    
+  ) {
+  
+  //#################### DISPLAY INDEX DOCUMENTATION###################################
+  // DISPLAY INDEX 6 bits [0-63]
+  //  0-49 QUESTION DISPLAY
+  //
+  //  63 IDLE PAGE
+  //  62 DIFFICULTY SCREEN
+  //  59 INTRO SCREEN
+  //  61 YOU WON SCREEN
+  //  58 attr1 <=0 DEATH by
+  //  57 attr1 >=8
+  //  56 attr2 <=0
+  //  55 attr2 >=8
+  //  54 attr3 <=0
+  //  53 attr3 >=8
+  //  52 attr4 <=0
+  //  51 attr4 >=8
+  
+  //###################################################################################
+  
+  .clk(clk) {
+    
+    simple_ram ram0 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(0));
+    simple_ram ram1 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(1));
+    simple_ram ram2 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(2));
+    simple_ram ram3 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(3));
+    simple_ram ram4 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(4));
+    simple_ram ram5 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(5));
+    simple_ram ram6 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(6));
+    simple_ram ram7 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(7));
+    simple_ram ram8 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(8));
+    simple_ram ram9 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(9));
+    simple_ram ram10 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(10));
+    simple_ram ram11 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(11));
+    simple_ram ram12 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(12));
+    simple_ram ram13 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(13));
+    simple_ram ram14 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(14));
+    simple_ram ram15 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(15));
+    simple_ram ram16 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(16));
+    simple_ram ram17 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(17));
+    simple_ram ram18 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(18));
+    simple_ram ram19 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(19));
+    simple_ram ram20 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(20));
+    simple_ram ram21 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(21));
+    simple_ram ram22 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(22));
+    simple_ram ram23 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(23));
+    simple_ram ram24 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(24));
+    simple_ram ram25 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(25));
+    simple_ram ram26 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(26));
+    simple_ram ram27 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(27));
+    simple_ram ram28 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(28));
+    simple_ram ram29 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(29));
+    simple_ram ram30 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(30));
+    simple_ram ram31 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(31));
+    simple_ram ram32 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(32));
+    simple_ram ram33 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(33));
+    simple_ram ram34 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(34));
+    simple_ram ram35 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(35));
+    simple_ram ram36 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(36));
+    simple_ram ram37 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(37));
+    simple_ram ram38 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(38));
+    simple_ram ram39 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(39));
+    simple_ram ram40 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(40));
+    simple_ram ram41 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(41));
+    simple_ram ram42 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(42));
+    simple_ram ram43 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(43));
+    simple_ram ram44 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(44));
+    simple_ram ram45 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(45));
+    simple_ram ram46 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(46));
+    simple_ram ram47 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(47));
+    simple_ram ram48 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(48));
+    simple_ram ram49 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(49));
+    simple_ram ram50 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(50));
+    simple_ram ram51 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(51));
+    simple_ram ram52 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(52));
+    simple_ram ram53 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(53));
+    simple_ram ram54 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(54));
+    simple_ram ram55 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(55));
+    simple_ram ram56 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(56));
+    simple_ram ram57 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(57));
+    simple_ram ram58 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(58));
+    simple_ram ram59 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(59));
+    simple_ram ram60 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(60));
+    simple_ram ram61 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(61));
+    simple_ram ram62 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(62));
+    simple_ram ram63 (#SIZE(8), #DEPTH(80), #MEM_INIT_FILE(63));
+    
+    
+  }
+  
+  
+  
+  
+  //sig rom[64][80][8];
+  
+  always {
+    
+    letter = 8h00;
+    
+    ram0.write_data = 8hxx;
+    ram0.write_en = 0;
+    ram0.address = address;
+    ram1.write_data = 8hxx;
+    ram1.write_en = 0;
+    ram1.address = address;
+    ram2.write_data = 8hxx;
+    ram2.write_en = 0;
+    ram2.address = address;
+    ram3.write_data = 8hxx;
+    ram3.write_en = 0;
+    ram3.address = address;
+    ram4.write_data = 8hxx;
+    ram4.write_en = 0;
+    ram4.address = address;
+    ram5.write_data = 8hxx;
+    ram5.write_en = 0;
+    ram5.address = address;
+    ram6.write_data = 8hxx;
+    ram6.write_en = 0;
+    ram6.address = address;
+    ram7.write_data = 8hxx;
+    ram7.write_en = 0;
+    ram7.address = address;
+    ram8.write_data = 8hxx;
+    ram8.write_en = 0;
+    ram8.address = address;
+    ram9.write_data = 8hxx;
+    ram9.write_en = 0;
+    ram9.address = address;
+    ram10.write_data = 8hxx;
+    ram10.write_en = 0;
+    ram10.address = address;
+    ram11.write_data = 8hxx;
+    ram11.write_en = 0;
+    ram11.address = address;
+    ram12.write_data = 8hxx;
+    ram12.write_en = 0;
+    ram12.address = address;
+    ram13.write_data = 8hxx;
+    ram13.write_en = 0;
+    ram13.address = address;
+    ram14.write_data = 8hxx;
+    ram14.write_en = 0;
+    ram14.address = address;
+    ram15.write_data = 8hxx;
+    ram15.write_en = 0;
+    ram15.address = address;
+    ram16.write_data = 8hxx;
+    ram16.write_en = 0;
+    ram16.address = address;
+    ram17.write_data = 8hxx;
+    ram17.write_en = 0;
+    ram17.address = address;
+    ram18.write_data = 8hxx;
+    ram18.write_en = 0;
+    ram18.address = address;
+    ram19.write_data = 8hxx;
+    ram19.write_en = 0;
+    ram19.address = address;
+    ram20.write_data = 8hxx;
+    ram20.write_en = 0;
+    ram20.address = address;
+    ram21.write_data = 8hxx;
+    ram21.write_en = 0;
+    ram21.address = address;
+    ram22.write_data = 8hxx;
+    ram22.write_en = 0;
+    ram22.address = address;
+    ram23.write_data = 8hxx;
+    ram23.write_en = 0;
+    ram23.address = address;
+    ram24.write_data = 8hxx;
+    ram24.write_en = 0;
+    ram24.address = address;
+    ram25.write_data = 8hxx;
+    ram25.write_en = 0;
+    ram25.address = address;
+    ram26.write_data = 8hxx;
+    ram26.write_en = 0;
+    ram26.address = address;
+    ram27.write_data = 8hxx;
+    ram27.write_en = 0;
+    ram27.address = address;
+    ram28.write_data = 8hxx;
+    ram28.write_en = 0;
+    ram28.address = address;
+    ram29.write_data = 8hxx;
+    ram29.write_en = 0;
+    ram29.address = address;
+    ram30.write_data = 8hxx;
+    ram30.write_en = 0;
+    ram30.address = address;
+    ram31.write_data = 8hxx;
+    ram31.write_en = 0;
+    ram31.address = address;
+    ram32.write_data = 8hxx;
+    ram32.write_en = 0;
+    ram32.address = address;
+    ram33.write_data = 8hxx;
+    ram33.write_en = 0;
+    ram33.address = address;
+    ram34.write_data = 8hxx;
+    ram34.write_en = 0;
+    ram34.address = address;
+    ram35.write_data = 8hxx;
+    ram35.write_en = 0;
+    ram35.address = address;
+    ram36.write_data = 8hxx;
+    ram36.write_en = 0;
+    ram36.address = address;
+    ram37.write_data = 8hxx;
+    ram37.write_en = 0;
+    ram37.address = address;
+    ram38.write_data = 8hxx;
+    ram38.write_en = 0;
+    ram38.address = address;
+    ram39.write_data = 8hxx;
+    ram39.write_en = 0;
+    ram39.address = address;
+    ram40.write_data = 8hxx;
+    ram40.write_en = 0;
+    ram40.address = address;
+    ram41.write_data = 8hxx;
+    ram41.write_en = 0;
+    ram41.address = address;
+    ram42.write_data = 8hxx;
+    ram42.write_en = 0;
+    ram42.address = address;
+    ram43.write_data = 8hxx;
+    ram43.write_en = 0;
+    ram43.address = address;
+    ram44.write_data = 8hxx;
+    ram44.write_en = 0;
+    ram44.address = address;
+    ram45.write_data = 8hxx;
+    ram45.write_en = 0;
+    ram45.address = address;
+    ram46.write_data = 8hxx;
+    ram46.write_en = 0;
+    ram46.address = address;
+    ram47.write_data = 8hxx;
+    ram47.write_en = 0;
+    ram47.address = address;
+    ram48.write_data = 8hxx;
+    ram48.write_en = 0;
+    ram48.address = address;
+    ram49.write_data = 8hxx;
+    ram49.write_en = 0;
+    ram49.address = address;
+    ram50.write_data = 8hxx;
+    ram50.write_en = 0;
+    ram50.address = address;
+    ram51.write_data = 8hxx;
+    ram51.write_en = 0;
+    ram51.address = address;
+    ram52.write_data = 8hxx;
+    ram52.write_en = 0;
+    ram52.address = address;
+    ram53.write_data = 8hxx;
+    ram53.write_en = 0;
+    ram53.address = address;
+    ram54.write_data = 8hxx;
+    ram54.write_en = 0;
+    ram54.address = address;
+    ram55.write_data = 8hxx;
+    ram55.write_en = 0;
+    ram55.address = address;
+    ram56.write_data = 8hxx;
+    ram56.write_en = 0;
+    ram56.address = address;
+    ram57.write_data = 8hxx;
+    ram57.write_en = 0;
+    ram57.address = address;
+    ram58.write_data = 8hxx;
+    ram58.write_en = 0;
+    ram58.address = address;
+    ram59.write_data = 8hxx;
+    ram59.write_en = 0;
+    ram59.address = address;
+    ram60.write_data = 8hxx;
+    ram60.write_en = 0;
+    ram60.address = address;
+    ram61.write_data = 8hxx;
+    ram61.write_en = 0;
+    ram61.address = address;
+    ram62.write_data = 8hxx;
+    ram62.write_en = 0;
+    ram62.address = address;
+    ram63.write_data = 8hxx;
+    ram63.write_en = 0;
+    ram63.address = address;
+    
+    case(selector){
+      0: letter = ram0.read_data;
+      1: letter = ram1.read_data;
+      2: letter = ram2.read_data;
+      3: letter = ram3.read_data;
+      4: letter = ram4.read_data;
+      5: letter = ram5.read_data;
+      6: letter = ram6.read_data;
+      7: letter = ram7.read_data;
+      8: letter = ram8.read_data;
+      9: letter = ram9.read_data;
+      10: letter = ram10.read_data;
+      11: letter = ram11.read_data;
+      12: letter = ram12.read_data;
+      13: letter = ram13.read_data;
+      14: letter = ram14.read_data;
+      15: letter = ram15.read_data;
+      16: letter = ram16.read_data;
+      17: letter = ram17.read_data;
+      18: letter = ram18.read_data;
+      19: letter = ram19.read_data;
+      20: letter = ram20.read_data;
+      21: letter = ram21.read_data;
+      22: letter = ram22.read_data;
+      23: letter = ram23.read_data;
+      24: letter = ram24.read_data;
+      25: letter = ram25.read_data;
+      26: letter = ram26.read_data;
+      27: letter = ram27.read_data;
+      28: letter = ram28.read_data;
+      29: letter = ram29.read_data;
+      30: letter = ram30.read_data;
+      31: letter = ram31.read_data;
+      32: letter = ram32.read_data;
+      33: letter = ram33.read_data;
+      34: letter = ram34.read_data;
+      35: letter = ram35.read_data;
+      36: letter = ram36.read_data;
+      37: letter = ram37.read_data;
+      38: letter = ram38.read_data;
+      39: letter = ram39.read_data;
+      40: letter = ram40.read_data;
+      41: letter = ram41.read_data;
+      42: letter = ram42.read_data;
+      43: letter = ram43.read_data;
+      44: letter = ram44.read_data;
+      45: letter = ram45.read_data;
+      46: letter = ram46.read_data;
+      47: letter = ram47.read_data;
+      48: letter = ram48.read_data;
+      49: letter = ram49.read_data;
+      50: letter = ram50.read_data;
+      51: letter = ram51.read_data;
+      52: letter = ram52.read_data;
+      53: letter = ram53.read_data;
+      54: letter = ram54.read_data;
+      55: letter = ram55.read_data;
+      56: letter = ram56.read_data;
+      57: letter = ram57.read_data;
+      58: letter = ram58.read_data;
+      59: letter = ram59.read_data;
+      60: letter = ram60.read_data;
+      61: letter = ram61.read_data;
+      62: letter = ram62.read_data;
+      63: letter = ram63.read_data;
+      
+    }
+    
+    
+    
+    /*
+       rom[0] = $reverse("The neighbouring kingdom has been weakened. Invade the neighbouring kingdom?    ");
+       rom[1] = $reverse("Your military wishes to conduct a hunt in the woods. Join them?                 ");
+       rom[2] = $reverse("Your enemies want to sign a peace treaty to prevent war. Sign the treaty?       ");
+       rom[3] = $reverse("The church wants to start a war with the pagans, let them?                      ");
+       rom[4] = $reverse("Sire, our men grow restless. Shall we turn their water into wine?               ");
+       rom[5] = $reverse("The church is lacking manpower. Recruit more church officials from the people?  ");
+       rom[6] = $reverse("The church would like to build schools for the people. Allow them?              ");
+       rom[7] = $reverse("A few monks have been found behaving like ducks in the square, lock them up?    ");
+       rom[8] = $reverse("The pope requests to declare 25th December a new holiday, Christ Mass. Agree?   ");
+       rom[9] = $reverse("Is the earth round?                                                             ");
+       rom[10] = $reverse("The people are losing faith in the church. Establish more churches?             ");
+       rom[11] = $reverse("The priests requires more funds to maintain their lifestyle. Donate?            ");
+       rom[12] = $reverse("Your advisors recommend you invest in gold instead of the church. Invest?       ");
+       rom[13] = $reverse("The church wants to impose mandatory donations, yay or nay?                     ");
+       rom[14] = $reverse("We must increase our military might. Enlist children?                           ");
+       rom[15] = $reverse("We need more soldiers. Recruit the women?                                       ");
+       rom[16] = $reverse("Your general has been challenged to a duel. Allow him to take up the duel?      ");
+       rom[17] = $reverse("Your soldiers have been found raping women. Execute them?                       ");
+       rom[18] = $reverse("A great peace falls over the kingdom. Abolish conscription?                     ");
+       rom[19] = $reverse("The neighbouring king is visiting. Organize a grand feast?                      ");
+       rom[20] = $reverse("Our weaponry is outdated. Invest in spoons to make our weapons stronger?        ");
+       rom[21] = $reverse("There has not been a war in ages. Give a rallying speech to the military?       ");
+       rom[22] = $reverse("Your fortress is weak. Build another tower?                                     ");
+       rom[23] = $reverse("Your allied nations require your military support. Assist them?                 ");
+       rom[24] = $reverse("There has been a bad harvest this season. Decrease taxes                        ");
+       rom[25] = $reverse("The people feel that the price of bread is too high. Lower the price?           ");
+       rom[26] = $reverse("The streets smell like sewage. Clear the sewage system?                         ");
+       rom[27] = $reverse("It is your kingdoms anniversary. Hold a feast to celebrate?                     ");
+       rom[28] = $reverse("Your Kingdom finances are low. Start a pyramid scheme?                          ");
+       rom[29] = $reverse("The priests would like to hold a mass prayer. Allow them to proceed?            ");
+       rom[30] = $reverse("The priest defecated on your doorstep. Start a cult?                            ");
+       rom[31] = $reverse("The general wants to demonstrate his men?s prowess. Accept?                     ");
+       rom[32] = $reverse("The general wants to you to inspect his cannons. Wear gloves?                   ");
+       rom[33] = $reverse("Beggars are invading the streets. Throw them out?                               ");
+       rom[34] = $reverse("A hungry boy was caught stealing your crown jewels. Bring him to the priest?    ");
+       rom[35] = $reverse("Kingdoms from the orient would like to sign a trade pact. Sign the treaty?      ");
+       rom[36] = $reverse("Your northern neighbours want you to pay for their border wall. Si?             ");
+       rom[37] = $reverse("The head priest has become too old and has retired, the church is unstable.     ");
+       rom[38] = $reverse("The people are happy and you are loved by them.                                 ");
+       rom[39] = $reverse("A meteor destroyed the neighbouring city!                                       ");
+       rom[40] = $reverse("The previous King took a loan and now the debt must be repaid.                  ");
+       rom[41] = $reverse("The kingdoms in the orient have seized your carriages/trebuchets.               ");
+       rom[42] = $reverse("The neighbouring prince wants to marry your daughter. Marry her off?            ");
+       rom[43] = $reverse("Relations with the neighbouring kingdom are deteriorating. Send gifts?          ");
+       rom[44] = $reverse("A crow has been sitting on your porch every morning. Increase patrols?          ");
+       rom[45] = $reverse("You hear your younger brother is eyeing your throne. Send into exile?           ");
+       rom[46] = $reverse("The devil would like to make a deal with you.                                   ");
+       rom[47] = $reverse("Dijkstra the Short was caught trespassing. Your remove him from your stack.     ");
+       rom[48] = $reverse("The great prophet Kurniawan smiles upon you.                                    ");
+       rom[49] = $reverse("Advisor Zhang hands you his scrolls of wisdom.                                  ");
+       rom[50] = $reverse("I AM A FILE AND YOU PUT DOCUMENTS IN ME.I AM A FILE AND YOU PUT DOCUMENTS IN ME.");
+       rom[51] = $reverse("Your lavish parties leave you in poor health, and you die of a heart attack.    ");
+       rom[52] = $reverse("The treasury is empty, and the kingdom is in shambles. You die of malnutrition. ");
+       rom[53] = $reverse("Your people are strong and healthy. They decide to establish a democracy.       ");
+       rom[54] = $reverse("You have neglected your people. They break into the palace and maim you.        ");
+       rom[55] = $reverse("Your generals grow too powerful, and lead a coup. You are killed in the chaos.  ");
+       rom[56] = $reverse("You are vulnerable without an army. Neighbouring nations attack and kill you.   ");
+       rom[57] = $reverse("The church grows too powerful, and overthrows the monarchy. You are executed.   ");
+       rom[58] = $reverse("You have allowed sin to spread across this kingdom, and are killed by cultists. ");
+       rom[59] = $reverse("Your Majesty, wake up! Your loyal subjects need guidance on stately affairs.    ");
+       rom[60] = $reverse("I AM A FILE AND YOU PUT DOCUMENTS IN ME.I AM A FILE AND YOU PUT DOCUMENTS IN ME.");
+       rom[61] = $reverse("You have ruled well for 50 years. You pass away peacefully, loved by all.       ");
+       rom[62] = $reverse("Select your difficulty my liege.          NORMAL                       ANARCHY  ");
+       rom[63] = $reverse("Welcome, Your Majesty! Press any key to start.                                  ");
+    */
+    
+    
+    
+  }
+}

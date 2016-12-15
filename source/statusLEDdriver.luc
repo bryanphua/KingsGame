@@ -1,0 +1,180 @@
+global Attrdriverstates{
+  const IDLE = 0; 
+  const CLEAR = 1;
+  const CHECK0 = 2;
+  const HOLDCLEAR = 3;
+  const LED0 = 4;
+  const LED1 = 5;
+  const LED2 = 6;
+  const LED3 = 7;
+  const LED4 = 8;
+  const LED5 = 9;
+  const LED6 = 10;
+  const LED7 = 11;
+
+}
+
+
+
+module statusLEDdriver (
+    input clk,  // clock
+    input rst,  // reset
+    input enable,
+    input attributein[8],
+    output latchclear,
+    output latchG,
+    output latchs0,
+    output latchs1,
+    output latchs2,
+    output latchD
+  ) {
+  .clk(clk), .rst(rst) {
+    dff state[4]; // CPU Registers
+    dff counter[10];
+    
+  }
+  always {
+    latchD = 0;
+    latchclear = 1; 
+    latchG = 1;    //always on memory mode
+    
+    latchs0 = 0;
+    latchs1 = 0;
+    latchs2 = 0;
+    
+    case(state.q){
+    
+      Attrdriverstates.IDLE:   //holds value and wait for 
+        if (enable==1)
+          state.d = 4d1;
+        else
+          state.d = 4d0;
+      Attrdriverstates.CLEAR:
+        latchclear = 0;
+        latchG = 1;            //note might have to delay this
+        state.d = 4d2;
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = state.q +1;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }
+     Attrdriverstates.CHECK0:    // check if attribute in if 1-8 else go to Holdclear state
+        latchclear = 0;
+        latchG = 1;              //hold the clear dont want led 0 to light up
+        if (attributein<4)
+          state.d = 4d4;
+        else
+          state.d = 4d10; //jump to light up buttons
+     
+          
+      Attrdriverstates.LED0: 
+          if (attributein ==0){ 
+          latchD = 1;
+          latchG = 0;
+          latchs2 = 0;
+          latchs1 = 0;
+          latchs0 = 0;
+        }
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = state.q +1;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }
+        
+        
+      Attrdriverstates.LED1:
+        if (attributein ==1){ 
+          latchD = 1;
+          latchG = 0;
+          latchs2 = 0;
+          latchs1 = 0;
+          latchs0 = 1;
+        }
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = state.q +1;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }
+        
+      Attrdriverstates.LED2:
+        if (attributein ==2){
+          latchD = 1;
+          latchG = 0;
+          latchs2 = 0;
+          latchs1 = 1;
+          latchs0 = 0;
+        }
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = state.q +1;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }   
+      Attrdriverstates.LED3:
+        if (attributein ==3){ 
+          latchD = 1;
+          latchG = 0;
+          latchs2 = 0;
+          latchs1 = 1;
+          latchs0 = 1;
+        }
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = state.q +1;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }
+      Attrdriverstates.LED4:
+     
+        state.d = state.q+1;
+      Attrdriverstates.LED5:
+        
+        state.d = state.q+1;
+      Attrdriverstates.LED6:
+        //7 BUTTON light up
+          latchD = 1;
+          latchG = 0;
+          latchs2 = 1;
+          latchs1 = 1;
+          latchs0 = 0;
+        
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = state.q +1;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }
+      Attrdriverstates.LED7:
+        //BUTTON light up
+          latchD = 1;
+          latchG = 0;
+          latchs2 = 1;
+          latchs1 = 1;
+          latchs0 = 1;
+        
+        if (counter.q[9] ==1){
+          counter.d = 10d0;
+          state.d = 4b0;
+          }
+        else{
+          state.d = state.q;
+          counter.d = counter.q +1;
+          }   //back to idle
+  }
+}
+}
