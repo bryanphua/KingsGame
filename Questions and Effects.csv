@@ -1,0 +1,50 @@
+The neighbouring kingdom has been weakened. Invade the neighbouring kingdom? ,0,-1,1,0,-1,1,0,1
+Your military wishes to conduct a hunt in the woods. Join them?,1,-1,1,0,-1,1,0,0
+Your enemies want to sign a peace treaty to prevent war. Sign the treaty?,1,1,0,0,0,0,1,1
+"The church wants to start a war with the pagans, let them?",-1,1,0,0,1,-1,0,0
+"Sire, our men grow restless. Shall we turn their water into wine?",-1,1,0,0,1,-1,0,1
+The church is lacking manpower. Recruit more church officials from the people?,-1,0,0,0,1,0,1,0
+The church would like to build schools for the people. Allow them?,-1,0,-1,0,1,0,1,0
+"A few monks have been found behaving like ducks in the square, lock them up?",1,0,-1,0,-1,0,1,0
+"The pope requests to declare 25th December a new holiday, Christ Mass. Agree?",-1,0,-1,0,1,0,1,1
+Is the earth round?,1,0,-1,0,-1,0,1,0
+The people are losing faith in the church. Establish more churches? ,-1,0,0,1,1,0,0,-1
+The priests requires more funds to maintain their lifestyle. Donate?,-1,0,0,1,1,0,0,-1
+Your advisors recommend you invest in gold instead of the church. Invest?,1,0,0,-1,-1,0,0,1
+"The church wants to impose mandatory donations, yay or nay?",-1,0,1,0,1,0,-1,-1
+We must increase our military might. Enlist children?,0,-1,1,0,0,1,-1,0
+We need more soldiers. Recruit the women?,1,-1,0,0,0,1,-1,0
+Your general has been challenged to a duel. Allow him to take up the duel?,0,0,-1,0,0,-1,-1,0
+Your soldiers have been found raping women. Execute them?,0,1,-1,0,0,-1,1,0
+A great peace falls over the kingdom. Abolish conscription?,0,0,-1,0,0,-1,0,0
+The neighbouring king is visiting. Organize a grand feast?,0,0,0,0,0,1,0,-1
+Our weaponry is outdated. Invest in spoons to make our weapons stronger?,0,-1,0,0,0,-1,0,-1
+There has not been a war in ages. Give a rallying speech to the military?,0,-1,0,1,0,1,0,-1
+Your fortress is weak. Build another tower?,0,0,0,1,0,1,0,-1
+Your allied nations require your military support. Assist them?,0,1,0,0,0,-1,0,1
+There has been a bad harvest this season. Decrease taxes,0,0,-1,-1,0,0,1,-1
+The people feel that the price of bread is too high. Lower the price?,0,0,-1,1,0,0,1,-1
+The streets smell like sewage. Clear the sewage system? ,0,0,-1,1,0,0,1,-1
+It's your kingdom's anniversary. Hold a feast to celebrate?,0,0,-1,1,0,0,1,-1
+Your Kingdom finances are low. Start a pyramid scheme?,0,0,0,-1,0,0,-1,1
+The priests would like to hold a mass prayer. Allow them to proceed?,-1,0,0,0,1,0,0,0
+The priest defecated on your doorstep. Start a cult?,1,0,0,0,-1,0,1,1
+The general wants to demonstrate his men?s prowess. Accept?,0,-1,0,0,0,1,0,0
+The general wants to you to inspect his cannons. Wear gloves?,0,1,0,0,0,-1,0,0
+Beggars are invading the streets. Throw them out?,0,0,-1,0,0,0,1,1
+A hungry boy was caught stealing your crown jewels. Bring him to the priest?,0,0,0,-1,1,0,-1,0
+Kingdoms from the orient would like to sign a trade pact. Sign the treaty?,0,0,1,0,0,0,0,-1
+Your northern neighbours want you to pay for their border wall. Si?,0,0,1,1,0,0,-1,-1
+"The head priest has become too old and has retired, the church is unstable.",-1,0,0,0,-1,0,0,0
+The people are happy and you are loved by them.,0,0,1,0,0,0,1,0
+A meteor destroyed the neighbouring city!,1,0,-1,1,1,0,-1,1
+The previous King took a loan and now the debt must be repaid.,0,0,0,-1,0,0,0,-1
+The kingdoms in the orient have seized your carriages/trebuchets. ,0,-1,-1,0,0,-1,-1,0
+The neighbouring prince wants to marry your daughter. Marry her off?,0,1,1,-1,0,-1,-1,1
+Relations with the neighbouring kingdom are deteriorating. Send gifts?,-1,1,-1,-1,1,1,1,-1
+A crow has been sitting on your porch every morning. Increase patrols?,-1,0,0,-1,-1,0,-1,0
+You hear your younger brother is eyeing your throne. Send into exile?,0,1,0,-1,0,0,-1,1
+The devil would like to make a deal with you.,-1,-1,-1,-1,-1,1,-1,-1
+Dijkstra the Short was caught trespassing. Your remove him from your stack. ,0,0,0,0,0,0,0,0
+The great prophet Kurniawan smiles upon you.,0,0,0,0,0,0,0,0
+Advisor Zhang hands you his scrolls of wisdom.,0,0,0,0,0,0,0,0
