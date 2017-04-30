@@ -1,11 +1,11 @@
 # KingsGame
 A turn-based survival game built on the Mojo v3 FPGA
 
-##Kings
+## Kings
 A game about reigning over your kingdom as long as possible.
 Game mechanics and logic built around an ALU on an FPGA.
 
-##ALU Functions
+## ALU Functions
 
 | ALUFN  | Hexadecimal  | Operation | Description |
 |--------|------|-----------|------|
@@ -33,28 +33,28 @@ Game mechanics and logic built around an ALU on an FPGA.
 | 110101 | 0x35 | CMPLT     |Less than|
 | 110111 | 0x37 | CMPLE     |Less than equals to|
 
-##Player-count
+## Player-count
 One
 
-##Objective
+## Objective
 For players to reign over their kingdom as long as possible, without being overthrown or killed. High scores will be generated according to how many rounds the player has lasted.
 
-##Attributes
+## Attributes
 All attributes range from a scale of 0-10.
 
-##Religion
+## Religion
 A measure of the spiritual faith of the player’s population. Consequently, reflects the power of the church.
 
-##Population
+## Population
 A measure of the strength of the population. A consequence of their contentment, hunger and size.
 
-##Military
+## Military
 A measure of the strength of the military. Dependent on their funding, equipment and size.
 
-##Wealth
+## Wealth
 How rich you (or your royal treasurers) are. ‘Nuff said.
 
-##Instructions
+## Instructions
 - Players begin the game with a starting attribute level of 4 and have to ensure that these attributes do not drop to 0 or reach 8.
 - Every round, players will be prompted with a question requiring them to input a yes or no answer.
 
@@ -64,7 +64,7 @@ How rich you (or your royal treasurers) are. ‘Nuff said.
 - Players play until they are killed, or overthrown.
 - Players may be saved by bonuses gained at the beginning of the game, outlined below.
 
-##Death
+## Death
 Players will die and lose reign over their kingdom if any of the four attributes drop to 0, or hit the max cap of 10.
 
 For example:
@@ -74,7 +74,7 @@ When the Religion attribute has hit max cap:
 When the Population attribute has hit 0:
      Your people are dead. You have no kingdom to rule over.
 
-##Bonuses
+## Bonuses
 Along the way, players may be granted bonuses from special instances in-game. These can be gained from answering a question in a specific way, or randomly from a character.
 - Food Silo
     - Thanks to your great foresight, the food silo you’ve built helps prevent your people from going hungry
